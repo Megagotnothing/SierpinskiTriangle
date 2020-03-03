@@ -1,6 +1,9 @@
 int i = 300;
 boolean flip = true;
-int change = 6;
+int change = 30;
+
+int b = 0;
+int t = 0;
 
 public void setup()
 {
@@ -35,7 +38,6 @@ public void draw()
 		i-= change;
 	stroke(color(r-100,g-100,b-100));
 	sierpinski(150,0,i);
-	println(i);
 }
 
 public void sierpinski(double x, double y, double len) 
@@ -47,6 +49,8 @@ public void sierpinski(double x, double y, double len)
 		strokeWeight(0.001);
 		
 		triangle((float)x,(float)y,(float)(x+len/2),(float)(y+len),(float)(x-len/2),(float)(y+len));
+		b++;
+		//println("basecase", b,len);
 	}
 	
 	else
@@ -60,7 +64,8 @@ public void sierpinski(double x, double y, double len)
 		sierpinski(x-four,y+two,two); //bottom left
 		sierpinski(x+four,y+two,two); //right bot
 		sierpinski(x,y,two); // top
-		System.out.println("Test");
+		t++;
+		//println("tail",t,len);
 	}
 }
 
